@@ -23,11 +23,11 @@ const Ip = () => {
   }, []);
 
   if (error) {
-    return <Center h="100vh" bg="linear-gradient(to right, #ffd89b, #19547b)"><Text>Error: {error}</Text></Center>;
+    return <Center h="100vh" bg="black"><Text color={'white'}>Error: {error}</Text></Center>;
   }
 
   if (!data) {
-    return <Center h="100vh" bg="linear-gradient(to right, #ffd89b, #19547b)"><Text>Loading...</Text></Center>;
+    return <Center h="100vh" bg="black"><Text color={'white'}>Loading...</Text></Center>;
   }
 
   const { ip, location, proxy } = data;
