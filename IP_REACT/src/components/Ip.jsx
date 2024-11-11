@@ -33,14 +33,13 @@ const Ip = () => {
   const { ip, location, proxy } = data;
   const { region, lat, lng, country, city } = location;
   const isVpnUsed = proxy?.vpn || false;
-  const isTorUsed = proxy?.tor || false;
   const flag = `https://flagcdn.com/w20/${country.toLowerCase()}.png`;
   const localNowString = DateTime.local().toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
   const position = [lat, lng];
 
 
   return (
-<>
+
 <Center h="100vh"
 bg = "black"
   >
@@ -59,28 +58,29 @@ bg = "black"
 </MapContainer>
       <Card.Body gap="2">
         <Card.Title>What is my IP?</Card.Title>
-        <Card.Description>
-        <List.Root>
-  <List.Item>IP: {ip}</List.Item>
-  <List.Item>Local Time: {localNowString}</List.Item>
-  <List.Item>
-  <Text as="kbd">VPN Detected: {isVpnUsed ? "Yes" : "No"}</Text>
-</List.Item>
-
-  </List.Root>
+        <Card.Description> 
+            {ip}
         </Card.Description>
+        <Card.Description>
+            {isVpnUsed ? 'VPN Detected' : 'No VPN Detected'}
+        </Card.Description>
+          <Card.Description>
+            {localNowString}
+         </Card.Description>
+      
         <Text textStyle="1xl" fontWeight="medium" letterSpacing="tight" mt="1">
         {city}, {country}, {region} <Image src={flag} alt={country} display="inline" boxSize="15px" />
         </Text>
+        
       </Card.Body>
+      
       <Card.Footer gap="2">
         <Button size="sm" colorScheme="blue" onClick={() => window.open(`https://www.google.com/maps/search/?api=1&query=${lat},${lng}`)}>
           Open in Google Maps
-        </Button>
-      </Card.Footer>
+    </Button>
+    </Card.Footer>
     </Card.Root>
     </Center>
-      </>
   );
 };
 
