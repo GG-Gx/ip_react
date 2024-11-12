@@ -6,16 +6,13 @@ import 'leaflet/dist/leaflet.css';
 import { DateTime } from "luxon";
 import pinImg from '../assets/pin.svg';
 import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
-import 'leaflet-defaulticon-compatibility';
+
+
+
+
 const Ip = () => {
 
-  const pin = new L.Icon({
-    iconUrl: pinImg,
-    iconSize: [25, 41],
-    iconAnchor: [12, 41],
-    popupAnchor: [1, -34],
-  });
+
 
   const [data, setData] = useState('');
   const [error, setError] = useState(null);
@@ -59,14 +56,9 @@ bg = "black"
 <MapContainer center={position} zoom={13} style={{ height: '200px', width: '100%' }}>
 
   <TileLayer
-    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-  />
-  <Marker position={position}
-    icon={pin}
-
-          >
-    <Popup
-    >
+    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
+  <Marker position={position}>
+    <Popup>
       {position}
     </Popup>
   </Marker>
