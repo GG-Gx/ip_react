@@ -7,6 +7,7 @@ import { DateTime } from "luxon";
 import pinImg from '../assets/pin.svg';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import 'leaflet-defaulticon-compatibility';
 const Ip = () => {
 
   const pin = new L.Icon({
@@ -15,7 +16,7 @@ const Ip = () => {
     iconAnchor: [12, 41],
     popupAnchor: [1, -34],
   });
-  
+
   const [data, setData] = useState('');
   const [error, setError] = useState(null);
   useEffect(() => {
